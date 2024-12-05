@@ -4,11 +4,11 @@
 
 ### Scripts
 
-- npm start
+- `npm start`
 Startet das Programm im Entwicklermodus. Öffne [http://localhost:3000](http://localhost:3000/) um das Projekt zu öffnen!
-- npm test
+- `npm test`
 Startet den Testrunner im interaktiven Modus
-- npm run build
+- `npm run build`
 Builded die Applikation um sie für die produktive Plattform ready zu machen. 
 
 ## Testkonzept
@@ -29,9 +29,9 @@ Die Teststrategie konzentriert sich auf folgende Bereiche:
 
 ### **Rollen und Verantwortlichkeiten**
 
-- **Entwicklerteam (Team Agile)**: Implementierung und Durchführung der Tests.
-- **Teamleiter/Testmanager**: Überprüfung der Testabdeckung und Koordination.
-- **DevOps-Ingenieur**: Einrichtung und Wartung der CI/CD-Pipeline.
+- [Yao Kaiser](https://github.com/abbeynox) **Teamleitung, Entwicklung & DevOps Manager**
+- [Andy Lam](https://github.com/hoshiguru) **Entwicklung**
+- [Denis Meyer](https://github.com/meyden) **Präsentator**
 
 ### **Infrastruktur**
 
@@ -47,12 +47,11 @@ Die Teststrategie konzentriert sich auf folgende Bereiche:
 ### Testfälle
 
 #### Unit Tests
-
 |  | Unit Test GET Products |
 | --- | --- |
 | Testszenario | Geprüft wird, ob der Request der die Products abholen soll, auch wirklich korrekt in der Applikation integriert wurde. |
-| Testvoraussetzung | - Grundvoraussetzungen\n- Mock Data |
-| Testschritte | 1. Der Rückgabewert der Unit Response wird gemockt\n2. Die Methode, zum abholen der Products wird abgerufen\n3. Es wird verglichen, ob die richtige Response Value vorhanden ist |
+| Testvoraussetzung | - Grundvoraussetzungen<br>- Mock Data |
+| Testschritte | 1. Der Rückgabewert der Unit Response wird gemockt<br>2. Die Methode, zum Abholen der Products wird abgerufen<br>3. Es wird verglichen, ob die richtige Response Value vorhanden ist |
 | Erwartete Resultate | Der gesetzte Rückgabewert und der erhaltene Rückgabewert müssen übereinstimmen |
 
 #### 
@@ -60,6 +59,6 @@ Die Teststrategie konzentriert sich auf folgende Bereiche:
 |  | Unit Test GET Cart Items |
 | --- | --- |
 | Testszenario | Geprüft wird, ob der Request die Items im Warenkorb abholen soll, auch wirklich korrekt in der Applikation integriert wurde. |
-| Testvoraussetzung | - Grundvoraussetzungen\n- Mock Data |
-| Testschritte | 1. Der Rückgabewert der Unit Response wird gemockt\n2. Die Methode, zum fetchen der Items im Warenkorb wird abgerufen\n3. Es wird verglichen, ob die richtige Response Value vorhanden ist |
+| Testvoraussetzung | - Grundvoraussetzungen<br>- Mock Data |
+| Testschritte | 1. Der Rückgabewert der Unit Response wird gemockt<br>2. Die Methode, zum fetchen der Items im Warenkorb wird abgerufen<br>3. Es wird verglichen, ob die richtige Response Value vorhanden ist |
 | Erwartete Resultate | Der gesetzte Rückgabewert und der erhaltene Rückgabewert müssen übereinstimmen |
