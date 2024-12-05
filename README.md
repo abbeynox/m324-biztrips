@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Projekt Biztrips - by Andy, Denis, Yao
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation und Konfiguration
 
-## Available Scripts
+### Scripts
 
-In the project directory, you can run:
+- npm start
+Startet das Programm im Entwicklermodus. Öffne [http://localhost:3000](http://localhost:3000/) um das Projekt zu öffnen!
+- npm test
+Startet den Testrunner im interaktiven Modus
+- npm run build
+Builded die Applikation um sie für die produktive Plattform ready zu machen. 
 
-### `npm start`
+## Testkonzept
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Um die Qualität und Zuverlässigkeit des zu entwickelnden Produkts zu prüfen, sollen Tests durchgeführt werden. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Teststrategie
 
-### `npm test`
+Die Teststrategie konzentriert sich auf folgende Bereiche:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Backend-Tests**: Überprüfung der REST-API-Schnittstellen für CRUD-Operationen mit Postman.
+    - Endpunkte: `GET /trips/{id}`, `POST /trips`, `PUT /trips/{id}`, `DELETE /trips/{id}`.
+- **Frontend-Tests**:
+    - **Unit-Tests** mit Jest für React-Komponenten.
+    - **User-Interaktions-Tests** mit der Testing Library oder Cypress.
+    - **Rendering-Tests** für User Stories mit der Testing Library oder Cypress.
+- **Automatisierte Tests** in der CI/CD-Pipeline (GitHub) integriert, um sicherzustellen, dass Tests bei jedem Push ausgeführt werden und auf keinen Fall ein Merge Request auf die Produktion ohne erfolgreiche Prüfung eingeht. 
 
-### `npm run build`
+### **Rollen und Verantwortlichkeiten**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Entwicklerteam (Team Agile)**: Implementierung und Durchführung der Tests.
+- **Teamleiter/Testmanager**: Überprüfung der Testabdeckung und Koordination.
+- **DevOps-Ingenieur**: Einrichtung und Wartung der CI/CD-Pipeline.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Infrastruktur**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Testumgebung**:
+    - Backend: JSON-Server auf Port 3001.
+    - Frontend: React-Anwendung lokal und auf Netlify.
+    - Pipeline: GitLab oder GitHub Actions mit Stages für Build, Test und Deploy.
+- **Testdaten**:
+    - Bereitgestellt über den JSON-Server (`http://localhost:3001/trips`).
+    - Simulierte Daten für verschiedene Szenarien.
+    - In Unit Test arbeiten wir mit Mocking, um die Abhängigkeit möglichst zu reduzieren
 
-### `npm run eject`
+### Testfälle
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Unit Tests
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+|  | Unit Test GET Products |
+| --- | --- |
+| Testszenario | Geprüft wird, ob der Request der die Products abholen soll, auch wirklich korrekt in der Applikation integriert wurde. |
+| Testvoraussetzung | - Grundvoraussetzungen\n- Mock Data |
+| Testschritte | 1. Der Rückgabewert der Unit Response wird gemockt\n2. Die Methode, zum abholen der Products wird abgerufen\n3. Es wird verglichen, ob die richtige Response Value vorhanden ist |
+| Erwartete Resultate | Der gesetzte Rückgabewert und der erhaltene Rückgabewert müssen übereinstimmen |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|  | Unit Test GET Cart Items |
+| --- | --- |
+| Testszenario | Geprüft wird, ob der Request die Items im Warenkorb abholen soll, auch wirklich korrekt in der Applikation integriert wurde. |
+| Testvoraussetzung | - Grundvoraussetzungen\n- Mock Data |
+| Testschritte | 1. Der Rückgabewert der Unit Response wird gemockt\n2. Die Methode, zum fetchen der Items im Warenkorb wird abgerufen\n3. Es wird verglichen, ob die richtige Response Value vorhanden ist |
+| Erwartete Resultate | Der gesetzte Rückgabewert und der erhaltene Rückgabewert müssen übereinstimmen |
