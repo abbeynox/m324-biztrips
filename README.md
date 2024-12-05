@@ -4,11 +4,11 @@
 
 ### Scripts
 
-- npm start
+- `npm start`
 Startet das Programm im Entwicklermodus. Öffne [http://localhost:3000](http://localhost:3000/) um das Projekt zu öffnen!
-- npm test
+- `npm test`
 Startet den Testrunner im interaktiven Modus
-- npm run build
+- `npm run build`
 Builded die Applikation um sie für die produktive Plattform ready zu machen. 
 
 ## Testkonzept
@@ -29,9 +29,9 @@ Die Teststrategie konzentriert sich auf folgende Bereiche:
 
 ### **Rollen und Verantwortlichkeiten**
 
-- **Entwicklerteam (Team Agile)**: Implementierung und Durchführung der Tests.
-- **Teamleiter/Testmanager**: Überprüfung der Testabdeckung und Koordination.
-- **DevOps-Ingenieur**: Einrichtung und Wartung der CI/CD-Pipeline.
+- [Yao Kaiser](https://github.com/abbeynox) **Teamleitung, Entwicklung & DevOps Manager**
+- [Andy Lam](https://github.com/hoshiguru)**Entwicklung**
+- [Denis Meyer](https://github.com/meyden)**Präsentator**
 
 ### **Infrastruktur**
 
