@@ -26,12 +26,12 @@ export default function App() {
     }
 
     function removeFromWishlist(item) {
-        console.log(item);
-        setWishlist((trip) => trip.filter((t) => t.id !== trip.id));
-
+        console.log("Removing item from wishlist:", item);
+        setWishlist((currentWishlist) =>
+            currentWishlist.filter((trip) => trip.id !== item.id)
+        );
     }
-
-
+    
     function clearWishlist() {
         setWishlist([]);
     }
@@ -49,9 +49,8 @@ export default function App() {
                 <main>
                     <h1>Welcome to biztrips-App</h1>
 
-                    <Wishlist wishlist={wishlist} removeFromWishlist={() => removeFromWishlist()}
-                              clearWishlist={() => clearWishlist()}/>
-                    {/*   <WishList />*/}
+                    <Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} clearWishlist={clearWishlist} />
+
                     <TripList addToWishlist={addToWishlist}/>
 
                 </main>

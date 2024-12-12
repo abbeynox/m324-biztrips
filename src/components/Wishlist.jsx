@@ -56,8 +56,11 @@ export default function Wishlist({ wishlist, removeFromWishlist, clearWishlist }
                     <th scope="col">
                      { <button
                         //onClick={heartItem}
-                        className="btn btn-outline-success fa fa-heart fa-xs"
-                      />}
+                        className="btn btn-outline-success">
+                          <i className="fa fa-heart" />
+                        </button>
+                        
+                      }
                       <button
                         className="btn btn-outline-danger"
                         onClick={clearWishlist}
@@ -113,17 +116,17 @@ function WishlistItem(props) {
       </td>
       <td className="price-wrap price"></td>
       <td className="text-right">
-        <button className="btn btn-outline-success fa fa-heart fa-xs" />
-        <i className="fa-regular fa-heart"></i>
-        <button
-          className="btn btn-outline-danger"
-          // onClick={ () => removeFromWishlist(props.item) } // App deleteItem
-
-
-            onClick={(item) => removeFromWishlist(item)}
-        >
-          delete Item
+        <button className="btn btn-outline-success">
+          <i className="fa fa-heart"></i>
         </button>
+        
+        <button
+            className="btn btn-outline-danger"
+            onClick={() => removeFromWishlist(item)}
+        >
+            delete Item
+        </button>
+
       </td>
     </tr>
   );
